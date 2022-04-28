@@ -1,19 +1,23 @@
-<%- include('../../shared/includes/head', { pageTitle: 'Login' }) %>
+<%- include('../../shared/includes/head', { pageTitle: 'All Products' }) %>
+<link rel="stylesheet" href="/styles/products.css">
+<script src="/scripts/product-management.js" defer></script>
 </head>
 
 <body>
   <%- include('../../shared/includes/header') %>
   <main>
-    <h1>All Products (Admin) </h1>
+    <h1>Product Administration</h1>
     <section>
       <h2>Manage Products</h2>
-      <p><a href="/admin/products/new" class="btn">Add Product</a></p>
+      <p>
+        <a href="/admin/products/new" class="btn">Add Product</a>
+      </p>
     </section>
     <section>
-      <ul>
+      <ul id="products-grid">
         <% for (const product of products) { %>
         <li>
-          <%- include ('includes/product-item', {product:product}) %>
+          <%- include('../../shared/includes/product-item', { product: product }) %>
         </li>
         <% } %>
       </ul>
